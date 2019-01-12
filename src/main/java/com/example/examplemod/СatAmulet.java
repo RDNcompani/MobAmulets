@@ -10,6 +10,7 @@ import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingEvent;
 
 import java.lang.reflect.Field;
@@ -21,9 +22,11 @@ public class СatAmulet extends Item {
         setTextureName("examplemod:cat_amulet");
         setUnlocalizedName("кошачий омулет");
         setCreativeTab(CreativeTabs.tabMaterials);
+    }
 
-
-
+    @Override
+    public void addInformation(ItemStack p_77624_1_, EntityPlayer p_77624_2_, List p_77624_3_, boolean p_77624_4_) {
+        p_77624_3_.add("Отпугивает от вас криперов");
     }
 
     @SubscribeEvent
