@@ -18,6 +18,7 @@ public class ExampleMod {
     public static final СatAmulet CAT_AMULET = new СatAmulet();
     public static final Zombie_AMULET ZOMBIE_AMULET = new Zombie_AMULET();
     public static final Chicen_Amulet CHUCEN_AMULET = new Chicen_Amulet();
+    public static final Cave_spider CAVE_SPIDER = new Cave_spider();
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
@@ -25,6 +26,7 @@ public class ExampleMod {
         MinecraftForge.EVENT_BUS.register(CAT_AMULET);
         MinecraftForge.EVENT_BUS.register(ZOMBIE_AMULET);
         MinecraftForge.EVENT_BUS.register(CHUCEN_AMULET);
+        FMLCommonHandler.instance().bus().register(CAVE_SPIDER);
         FMLCommonHandler.instance().bus().register(SPIDER_AMULET);
         Object[] object1 = {"HKH","GAG","HKH", 'H', Items.string,'K',Items.leather,'G',Items.iron_ingot,'A',Items.diamond };
         ItemStack item1 = new ItemStack (AMULET);
@@ -47,6 +49,7 @@ public class ExampleMod {
         GameRegistry.registerItem(ZOMBIE_AMULET , "Амулет Зомби");
         GameRegistry.registerItem(CHUCEN_AMULET, "Амулет Курицы");
         GameRegistry.registerItem(SPIDER_AMULET, "Амулет Паука");
+        GameRegistry.registerItem(CAVE_SPIDER , "Амулет Пещерного паука");
     }
 
 
