@@ -6,6 +6,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 
 import java.util.List;
 
@@ -23,14 +24,54 @@ public class Spider1 extends Item {
     @SubscribeEvent
     public void climbWall(TickEvent.PlayerTickEvent event) {
 
-
         if (!event.player.isCollidedHorizontally) {
             return;
         }
 
-        if (event.player.inventory.hasItem(ExampleMod.SPIDER_AMULET))
-            event.player.motionY = 0.5;
+        if (event.player.inventory.hasItem(ExampleMod.SPIDER_AMULET) || event.player.inventory.hasItem(ExampleMod.CAVE_SPIDER)) {
+            ItemStack itemStack;
+            int i = 0;
+            while ( i < event.player.inventory.getSizeInventory()) {
+                    itemStack = event.player.inventory.getStackInSlot(i);
+                    if (itemStack != null && (itemStack.getItem() == ExampleMod.SPIDER_AMULET || itemStack.getItem() == ExampleMod.CAVE_SPIDER)){
+                        //нашли амулет
+
+
+                        long metka;
+
+                        if (itemStack.hasTagCompound()) {
+                            metka = itemStack.getTagCompound().getLong("metka");
+                        } else {
+                            if (event.player.isCollidedVertically) {
+                                metka = System.currentTimeMillis();
+                                writeMetka(itemStack);
+                            } else return;
+                        }
+
+                        long metkaEnd = metka + 5000;
+                        long metkaCurrent = System.currentTimeMillis();
+
+                        if (metkaCurrent > metkaEnd) {
+                            // Анулируем метку
+                            // TODO: !!!
+                            itemStack.setTagCompound(null);
+
+                        } else {
+                            event.player.motionY = 0.5;
+                        }
+
+
+                    }
+
+                   i++;
+            }
+        }
     }
 
 
+    void writeMetka(ItemStack itemStack) {
+        NBTTagCompound nbt = new NBTTagCompound();
+        nbt.setLong("metka",System.currentTimeMillis() );
+        itemStack.setTagCompound(nbt);
+    }
 }
