@@ -19,6 +19,7 @@ public class ExampleMod {
     public static final Zombie_AMULET ZOMBIE_AMULET = new Zombie_AMULET();
     public static final Chicen_Amulet CHUCEN_AMULET = new Chicen_Amulet();
     public static final Cave_spider CAVE_SPIDER = new Cave_spider();
+    public static final Sprute_Amulet SPRUTE_AMULET = new Sprute_Amulet();
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
@@ -28,6 +29,7 @@ public class ExampleMod {
         MinecraftForge.EVENT_BUS.register(CHUCEN_AMULET);
         FMLCommonHandler.instance().bus().register(CAVE_SPIDER);
         FMLCommonHandler.instance().bus().register(SPIDER_AMULET);
+        FMLCommonHandler.instance().bus().register(SPRUTE_AMULET);
         Object[] object1 = {"HKH","GAG","HKH", 'H', Items.string,'K',Items.leather,'G',Items.iron_ingot,'A',Items.diamond };
         ItemStack item1 = new ItemStack (AMULET);
         Object[] object2 = {"CCC","CAC","CCC", 'C', Items.fish,'A', AMULET };
@@ -38,11 +40,14 @@ public class ExampleMod {
         ItemStack item4 = new ItemStack(SPIDER_AMULET);
         Object[] object5 = {"OIO","IAI","OIO", 'O', Items.feather,'I',Items.gold_ingot,'A',AMULET};
         ItemStack item5 = new ItemStack (CHUCEN_AMULET);
+        Object[] object6 = {"SSS","SAS","SSS",'S', new ItemStack(Items.dye, 1, 0),'A', new ItemStack(AMULET)};
+        ItemStack item6 = new ItemStack (SPRUTE_AMULET);
         GameRegistry.addRecipe(item1,object1);
         GameRegistry.addRecipe(item2,object2);
         GameRegistry.addRecipe(item3,object3);
         GameRegistry.addRecipe(item4,object4);
         GameRegistry.addRecipe(item5,object5);
+        GameRegistry.addRecipe(item6,object6);
 
         GameRegistry.registerItem(AMULET , "Амулет");
         GameRegistry.registerItem(CAT_AMULET , "Амулет Кошки");
@@ -50,6 +55,7 @@ public class ExampleMod {
         GameRegistry.registerItem(CHUCEN_AMULET, "Амулет Курицы");
         GameRegistry.registerItem(SPIDER_AMULET, "Амулет Паука");
         GameRegistry.registerItem(CAVE_SPIDER , "Амулет Пещерного паука");
+        GameRegistry.registerItem(SPRUTE_AMULET , "Амулет спрута");
     }
 
 
