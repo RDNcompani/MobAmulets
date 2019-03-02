@@ -5,6 +5,7 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -19,6 +20,7 @@ public class ExampleMod {
     public static final Zombie_AMULET ZOMBIE_AMULET = new Zombie_AMULET();
     public static final Chicen_Amulet CHUCEN_AMULET = new Chicen_Amulet();
     public static final Cave_spider CAVE_SPIDER = new Cave_spider();
+    public static final Slime_amulet SLIME_AMULET = new Slime_amulet ();
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
@@ -26,6 +28,7 @@ public class ExampleMod {
         MinecraftForge.EVENT_BUS.register(CAT_AMULET);
         MinecraftForge.EVENT_BUS.register(ZOMBIE_AMULET);
         MinecraftForge.EVENT_BUS.register(CHUCEN_AMULET);
+        MinecraftForge.EVENT_BUS.register(SLIME_AMULET);
         FMLCommonHandler.instance().bus().register(CAVE_SPIDER);
         FMLCommonHandler.instance().bus().register(SPIDER_AMULET);
         Object[] object1 = {"HKH","GAG","HKH", 'H', Items.string,'K',Items.leather,'G',Items.iron_ingot,'A',Items.diamond };
@@ -38,11 +41,17 @@ public class ExampleMod {
         ItemStack item4 = new ItemStack(SPIDER_AMULET);
         Object[] object5 = {"OIO","IAI","OIO", 'O', Items.feather,'I',Items.gold_ingot,'A',AMULET};
         ItemStack item5 = new ItemStack (CHUCEN_AMULET);
+        Object[] object6 = {"OIO","IAI","EIE", 'O', Blocks.dirt,'I',Items.slime_ball,'A',AMULET,'E',Items.water_bucket };
+        ItemStack item6 = new ItemStack (SLIME_AMULET);
+        Object[] object7 = {"OIO","IAI","OIO", 'O', Items.string,'I',Items.iron_ingot,'A',SPIDER_AMULET};
+        ItemStack item7 = new ItemStack (CAVE_SPIDER);
         GameRegistry.addRecipe(item1,object1);
         GameRegistry.addRecipe(item2,object2);
         GameRegistry.addRecipe(item3,object3);
         GameRegistry.addRecipe(item4,object4);
         GameRegistry.addRecipe(item5,object5);
+        GameRegistry.addRecipe(item6,object6);
+        GameRegistry.addRecipe(item7,object7);
 
         GameRegistry.registerItem(AMULET , "Амулет");
         GameRegistry.registerItem(CAT_AMULET , "Амулет Кошки");
@@ -50,6 +59,7 @@ public class ExampleMod {
         GameRegistry.registerItem(CHUCEN_AMULET, "Амулет Курицы");
         GameRegistry.registerItem(SPIDER_AMULET, "Амулет Паука");
         GameRegistry.registerItem(CAVE_SPIDER , "Амулет Пещерного паука");
+        GameRegistry.registerItem(SLIME_AMULET , "Амулет Слайма");
     }
 
 
