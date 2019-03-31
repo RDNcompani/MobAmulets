@@ -20,6 +20,7 @@ public class ExampleMod {
     public static final Chicen_Amulet CHUCEN_AMULET = new Chicen_Amulet();
     public static final Cave_spider CAVE_SPIDER = new Cave_spider();
     public static final Sprute_Amulet SPRUTE_AMULET = new Sprute_Amulet();
+    public static final Amulet_ghosta AMULET_GHOSTA = new Amulet_ghosta();
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
@@ -42,12 +43,15 @@ public class ExampleMod {
         ItemStack item5 = new ItemStack (CHUCEN_AMULET);
         Object[] object6 = {"SSS","SAS","SSS",'S', new ItemStack(Items.dye, 1, 0),'A', new ItemStack(AMULET)};
         ItemStack item6 = new ItemStack (SPRUTE_AMULET);
+        Object[] object7 = {"PPP","PAP","PPP",'P', Items.ghast_tear,'A', new ItemStack(AMULET)};
+        ItemStack item7 = new ItemStack (AMULET_GHOSTA);
         GameRegistry.addRecipe(item1,object1);
         GameRegistry.addRecipe(item2,object2);
         GameRegistry.addRecipe(item3,object3);
         GameRegistry.addRecipe(item4,object4);
         GameRegistry.addRecipe(item5,object5);
         GameRegistry.addRecipe(item6,object6);
+        GameRegistry.addRecipe(item7,object7);
 
         GameRegistry.registerItem(AMULET , "Амулет");
         GameRegistry.registerItem(CAT_AMULET , "Амулет Кошки");
@@ -56,6 +60,7 @@ public class ExampleMod {
         GameRegistry.registerItem(SPIDER_AMULET, "Амулет Паука");
         GameRegistry.registerItem(CAVE_SPIDER , "Амулет Пещерного паука");
         GameRegistry.registerItem(SPRUTE_AMULET , "Амулет спрута");
+        GameRegistry.registerItem(AMULET_GHOSTA , "Амулет гаста");
     }
 
 
