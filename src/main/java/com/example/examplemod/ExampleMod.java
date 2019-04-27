@@ -21,12 +21,15 @@ public class ExampleMod {
     public static final Chicen_Amulet CHUCEN_AMULET = new Chicen_Amulet();
     public static final Cave_spider CAVE_SPIDER = new Cave_spider();
     public static final Slime_amulet SLIME_AMULET = new Slime_amulet ();
+    public static final Ender_AMULET ENDER_AMULET = new Ender_AMULET ();
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(AMULET);
         MinecraftForge.EVENT_BUS.register(CAT_AMULET);
         MinecraftForge.EVENT_BUS.register(ZOMBIE_AMULET);
+        MinecraftForge.EVENT_BUS.register(ENDER_AMULET);
+        FMLCommonHandler.instance().bus().register(ENDER_AMULET);
         MinecraftForge.EVENT_BUS.register(CHUCEN_AMULET);
         MinecraftForge.EVENT_BUS.register(SLIME_AMULET);
         FMLCommonHandler.instance().bus().register(CAVE_SPIDER);
@@ -45,6 +48,8 @@ public class ExampleMod {
         ItemStack item6 = new ItemStack (SLIME_AMULET);
         Object[] object7 = {"OIO","IAI","OIO", 'O', Items.string,'I',Items.iron_ingot,'A',SPIDER_AMULET};
         ItemStack item7 = new ItemStack (CAVE_SPIDER);
+        Object[] object8 = {"HKH","GAG","HKH", 'H', Items.ender_pearl,'K',Items.ender_eye,'G',Items.diamond,'A',AMULET };
+        ItemStack item8 = new ItemStack (ENDER_AMULET);
         GameRegistry.addRecipe(item1,object1);
         GameRegistry.addRecipe(item2,object2);
         GameRegistry.addRecipe(item3,object3);
@@ -52,6 +57,7 @@ public class ExampleMod {
         GameRegistry.addRecipe(item5,object5);
         GameRegistry.addRecipe(item6,object6);
         GameRegistry.addRecipe(item7,object7);
+        GameRegistry.addRecipe(item8,object8);
 
         GameRegistry.registerItem(AMULET , "Амулет");
         GameRegistry.registerItem(CAT_AMULET , "Амулет Кошки");
@@ -60,6 +66,7 @@ public class ExampleMod {
         GameRegistry.registerItem(SPIDER_AMULET, "Амулет Паука");
         GameRegistry.registerItem(CAVE_SPIDER , "Амулет Пещерного паука");
         GameRegistry.registerItem(SLIME_AMULET , "Амулет Слайма");
+        GameRegistry.registerItem(ENDER_AMULET , "Амулет Эндермена");
     }
 
 
