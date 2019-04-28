@@ -40,7 +40,7 @@ public class ExampleMod {
         ItemStack item2 = new ItemStack(CAT_AMULET);
         Object[] object3 = {"GZG","ZAZ","GZG",'G',Items.iron_ingot,'Z',Items.rotten_flesh,'A',AMULET};
         ItemStack item3 = new ItemStack(ZOMBIE_AMULET);
-        Object[] object4 = {"NPN","PAP","NPN",'N',Items.string,'P',Items.spider_eye,'A',Items.fire_charge};
+        Object[] object4 = {"NPN","PAP","NPN",'N',Items.string,'P',Items.spider_eye,'A',AMULET};
         ItemStack item4 = new ItemStack(SPIDER_AMULET);
         Object[] object5 = {"OIO","IAI","OIO", 'O', Items.feather,'I',Items.gold_ingot,'A',AMULET};
         ItemStack item5 = new ItemStack (CHUCEN_AMULET);
